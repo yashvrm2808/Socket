@@ -12,7 +12,4 @@ socket.on('connect',function(){
             console.log("New messgae recived",newMessage);
 
         })
-        socket.emit('createMessage',{
-            from:'vivek@gmail.com',
-        text:'Hey Yash'
-        })
+        
