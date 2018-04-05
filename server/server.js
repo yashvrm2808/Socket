@@ -10,21 +10,19 @@ var server=http.createServer(app);//server
 var io=socketIO(server);
 io.on('connection',(socket)=>{
     console.log('New user connected');
-
-    
-    socket.emit('newMessage',{
+socket.emit('newMessage',{
         from:'yash@gmail.com',
         text:'Hey Vivek',
         createdAt:'default'
     });
     socket.on('createMessage',(createMessage)=>{
-        console.log('createMessage',createMessage);
-        io.emit('newMessage',{
-            from: createMessage.from,
-            text: createMessage.text,
-            createdAt:new Date().getTime()
-        })
-    });
+        console.log('createMessage',createMessage)
+    io.emit('newMessage',{
+        from:createMessage.from,
+        text:createMessage.text,
+        createdAt:new Date().getDate()
+    })
+    })
     socket.on('disconnect',()=>{
     console.log('Disconnected');
 
